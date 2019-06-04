@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src = 'poc_head.js'></script>
+    <style>
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: rgb(216, 216, 216);
+        }
+
+        #spanmsg{
+            color:red;
+            font-weight: bold;
+        }
+        form{
+            display: block;
+            position: relative;
+            border: 1px solid rgb(0, 196, 196);
+            border-radius: 10px;
+            padding: 10px;
+            width: 520px;
+        }
+        label {
+            display: inline-block;
+            margin: 10px;
+            width: 100%;
+        }
+        label span:first-child{
+            display: inline-block;
+            color: grey;
+            text-align: right;
+            width: 70px;
+            padding: 10px;
+            vertical-align: middle;
+        }
+        input[type=text]{
+            width: 400px;
+            height: 50px;
+            font-size: 20px;
+            color: #555555;
+            padding: 10px;
+
+        }
+        button{
+            background: rgb(0, 110, 255);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            height: 30px;
+            padding: 8px;
+            font-size: 14px;
+        }
+        .timer{
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            float: right;
+            vertical-align: middle;
+            font-size: 20px;
+            color: rgb(243, 243, 243);
+            background: rgb(97, 96, 96);
+            padding: 5px 20px;
+            border-radius: 20px;
+            width: 63px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Twitter - protected tweets exposure</h1>
+    <!-- <ul>
+        <li><a href="index.html" target=_blank>Write-up</a></li>
+    </ul> -->
+    
+    
+    <form onsubmit="event.preventDefault();searchForMessage(this);">
+        <label>
+            <button type="submit">Does my protected tweet contain that phrase?</button>
+        </label>
+        <label>
+            <span> phrase: </span><input type='text' name='searchPhrase' placeholder="searched phrase" autocomplete="off" required/>
+        </label>
+        <label>
+            <span> from: </span><input value='' type='text' name='from' placeholder="from" autocomplete="off" required/>
+        </label>
+    </form>
+
+    <form onsubmit="event.preventDefault();fetchNumbers(this);">
+        <label>
+            <button type="submit">Fetch all 3-digit numbers from tweets</button>
+        </label>
+        <label>
+            <span> from: </span><input value='' type='text' name='from' placeholder="from" autocomplete="off" required/>
+        </label>
+
+        <span class='timer'><span id="_m">00</span>:<span id="_s">00</span>.<span id="_ms">0</span></span>
+    </form>
+
+    <form>
+        <label>
+            <span>Status: </span>
+            <span id='spanmsg'></span>
+        </label>
+    </form>
+
+    <script src="poc.js"></script>
+</body>
+</html>
